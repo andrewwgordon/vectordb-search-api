@@ -12,10 +12,16 @@ cd vectordb-search-api
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+```
+## Get the Sample Data
+```bash
 mkdir data
 cd data
 wget https://storage.googleapis.com/generall-shared-data/startups_demo.json
 cd ..
+```
+## Get Qdrant Vector Database Server
+```bash
 docker pull qdrant/qdrant
 docker run -d -p 6333:6333 \
     -v $(pwd)/qdrant_storage:/qdrant/storage \
@@ -29,7 +35,7 @@ python model_build.py
 ```bash
 python data_upload.py
 ```
-### Run the API Service
+## Run the API Service
 ```bash
 python api_service.py
 ```
